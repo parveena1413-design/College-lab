@@ -1,0 +1,28 @@
+import numpy as np
+import matplot.pyplot as plt
+x=[]
+y=[]
+x1,x2=0,0
+n=int(input("enter the no:of datapoints: "))
+for i in ramge(n):
+	x_val=float(input("enter x value for datapoint{i+1}: "))
+	x.append(x_val)
+for i in range(n):
+	y_val=float(input("enter y value for datapoint{i+1}: "))
+	y.append(y_val)
+x1+=(x[i]*y[i])
+x2+=(x[i]**2)
+sum_x,sum_y=np.sum(x),np.sum(y)
+slope=((n*x1)-(sum_x*sum_y))/((n*x2)-(sum_x**2))
+y_intercept=((sum_y)-(slope*sum_x))/n
+print('slope(m)= ',slope)
+print('y_intercept= ',y_intercept)
+y=[slope*xi+y_intercept for xi in x]
+plt.scatter(x,y,color='red',label='datapoints')
+plt.plot(x,y,label='fitted line')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.title('straight line fitting')
+plt.grid(True)
+plt.show()
