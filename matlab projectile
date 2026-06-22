@@ -1,0 +1,40 @@
+g=9.81;
+dt=0.01;
+v0_values=[20,40];
+theta_values=[30,45,60];
+t=0:dt:5;
+figure;
+hold on;
+xlabel('horizontal distance(m)');
+ylabel('vertical distance(m)');
+title('projectile motion trajectories');
+colors=['r','g','b','c','m','y'];
+color_idx=1;
+for v0_values
+  for theta=theta_values
+    theta_rad=deg2rad(theta);
+    v0x=v0*cos(theta_rad);
+    v0y=v0*sin(theta_rad);
+    x=v0x*t;
+    y=v0y*t-0.5*g*t.^2;
+    plot(x,y,colors(color_idx),'linewidth',2);
+    color_idx=color_idx+1;
+    if color_idx>length(colors)
+      color_idx=1;
+    end
+  end
+end
+legend_strings=cell(length(v0_values)*length(theta_values),1);
+idx=1;
+for v0=v0_values
+  for theta=theta_values
+    legend_strings{idx}=['v0= ',num2str(v0),'m/s,\theta= ',num2str(theta),'degrees'];
+    idx=idx+1
+  end
+end
+legend(legend_strings);
+xlim([0,max(v0_values)*max(t)]);
+ylim([0,max(v0_values)^2/(2*g)]);
+grid on;
+hold off;
+    
