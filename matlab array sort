@@ -1,0 +1,30 @@
+y=input('enter the array: ');
+[m,n]=size(y);
+disp(1:ascending,2:descending');
+x=input('enter the choice: ');
+switch(x)
+  case 1
+    for i=1:n
+      for j=1:n
+        if y(i)<y(j)
+          c=y(i);
+          y(i)=y(j);
+          y(j)=c;
+        end
+      end
+    end
+  case 2
+    for i=1:n
+      for j=1:n
+        if y(j)<y(i)
+          c=y(j);
+          y(j)=y(i);
+          y(i)=c;
+        end
+      end
+    end
+  otherwise
+    error('invalid choice');
+end
+disp(y);
+dlmwrite('c:\documents\matlab\arr.text',y);
