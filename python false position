@@ -1,0 +1,32 @@
+import numpy as np
+import matplotlib.pyplot as plt
+def f(x):
+  y=(x**3)-1
+  return(y)
+a=float(input('enter lower limit: '))
+b=float(input('enter upper limit: '))
+if f(a)*f(b)>0:
+  print('input limits are unacceptable!')
+else:
+  if f(a)>f(b):
+    t=a
+    a=b
+    b=t
+  while (b-a)>=0.0001:
+    x=(a*f(b)-b*f(a))/(f(b)-f(a))
+    if f(x)==0:
+      a=x
+    else:
+      b=x
+print("the root is ",x)
+x_vals=np.linspace(a - 2,b + 2,400)
+y_vals=f(x_vals)
+plt.plot(x_vals,y_vals,label='f(x)=(x**3)-1',color='blue')
+plt.axhline(0,color='black')
+plt.scatter(x,f(x),color='red',label='root')
+plt.title('false position method: root visualization')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.grid(True)
+plt.legend()
+plt.show()
