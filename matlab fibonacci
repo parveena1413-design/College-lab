@@ -1,0 +1,11 @@
+n=input('enter the no: of terms in fibonacci series: ');
+fib_seq=zeros(1,n);
+fib_seq(1)=0;
+fib_seq(2)=1;
+idx=3;
+while idx<=n
+  fib_seq(idx)=fib_seq(idx_1)+fib_seq(idx_2);
+idx=idx+1;
+end
+disp('fibonacci sequence: ');
+disp(fib_seq);
