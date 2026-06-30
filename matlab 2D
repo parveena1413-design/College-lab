@@ -1,0 +1,28 @@
+x=0:0.5:2*pi;
+subplot(2,2,1);
+y1=sin(x);
+plot(x,y1,'b');
+xlabel('x');
+ylabel('sinx');
+title('x vs sinx');
+
+subplot(2,2,2);
+y2=cos(x);
+plot(x,y2,'r');
+xlabel('x');
+ylabel('cosx');
+title('x vs cosx');
+
+subplot(2,2,3);
+y3=tan(x);
+plot(x,y3,'g');
+xlabel('x');
+ylabel('tanx');
+title('x vs tanx');
+
+subplot(2,2,4);
+y4=(1./x);
+plot(x,y4,'m');
+xlabel('x');
+ylabel('1/x');
+title('x vs 1/x');
